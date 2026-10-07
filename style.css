@@ -1,0 +1,122 @@
+// ========================================
+// SpendWise JavaScript Foundation
+// ========================================
+
+// 1. STORE APPLICATION DATA
+// ----------------------------------------
+
+let budget = 0;
+let expenses = 0;
+let remainingBalance = 0;
+
+let expenseName = "";
+let expenseCategory = "";
+
+// 2. COLLECT USER INPUT
+// ----------------------------------------
+
+budget = parseFloat(
+prompt("Enter your total budget in KSh:")
+);
+
+expenseName = prompt(
+"Enter the name of your expense:"
+);
+
+expenses = parseFloat(
+prompt("Enter the amount spent in KSh:")
+);
+
+expenseCategory = prompt(
+"Enter the expense category:"
+);
+
+// 3. VALIDATE USER INPUT
+// ----------------------------------------
+
+if (isNaN(budget) || isNaN(expenses)) {
+
+```
+console.log("========== SpendWise ==========");
+console.log("Error: Please enter valid numbers.");
+console.log("===============================");
+```
+
+} else {
+
+```
+// 4. REUSABLE FUNCTION
+// ----------------------------------------
+
+function calculateRemainingBalance(
+    budgetAmount,
+    expenseAmount
+) {
+    return budgetAmount - expenseAmount;
+}
+
+
+// 5. PERFORM BUDGET CALCULATION
+// ----------------------------------------
+
+remainingBalance = calculateRemainingBalance(
+    budget,
+    expenses
+);
+
+
+// 6. DISPLAY RESULTS IN CONSOLE
+// ----------------------------------------
+
+console.log("====================================");
+console.log("       SPENDWISE BUDGET SUMMARY");
+console.log("====================================");
+
+console.log(
+    "Total Budget: KSh " +
+    budget.toFixed(2)
+);
+
+console.log(
+    "Expense Name: " +
+    expenseName
+);
+
+console.log(
+    "Expense Category: " +
+    expenseCategory
+);
+
+console.log(
+    "Total Expenses: KSh " +
+    expenses.toFixed(2)
+);
+
+console.log(
+    "Remaining Balance: KSh " +
+    remainingBalance.toFixed(2)
+);
+
+console.log("====================================");
+
+
+// 7. DISPLAY RESULTS ON THE WEBPAGE
+// ----------------------------------------
+
+document.getElementById("budget-display").textContent =
+    "KSh " + budget.toFixed(2);
+
+document.getElementById("expense-display").textContent =
+    "KSh " + expenses.toFixed(2);
+
+document.getElementById("balance-display").textContent =
+    "KSh " + remainingBalance.toFixed(2);
+
+document.getElementById("name-display").textContent =
+    expenseName;
+
+document.getElementById("category-display").textContent =
+    expenseCategory;
+```
+
+}
